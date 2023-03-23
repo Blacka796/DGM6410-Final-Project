@@ -3,12 +3,19 @@ class_name Player
 
 #This script is for player and set the value for player
 
+signal died
+signal player_health_change(newHealth)
+
+
 export var speed = 260# palyer's movement speed
 
 
 onready var team = $Team
 onready var healthStat = $Health
 onready var weapon: Weapon = $Weapon
+onready var cameraTransform = $CameraTransform
+onready var collisionShape = $CollisionShape2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +50,11 @@ func _unhandled_input(event):
 func get_team():
 	return team.team
 
+
+func set_camera_transform(camerPath: NodePath):
+	cameraTransform.remote_path = camerPath
+
+
 func reload():
 	weapon.start_reload()
 
@@ -50,7 +62,11 @@ func reload():
 #function that healde the damage number of palyer
 func handle_hit():
 	healthStat.health -= 20
-	print("Hit", healthStat.health)
+	emit_signal("player_health_change", healthStat.health)
+	if healthStat.health <= 0:
+		die()
 
-
+func die():
+	emit_signal("died")
+	queue_free()
 

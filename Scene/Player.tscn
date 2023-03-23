@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 21.5 )
 
-[node name="Player" type="KinematicBody2D" groups=["player"]]
+[node name="Player" type="KinematicBody2D" groups=["obstacles", "player"]]
 position = Vector2( 328, 200 )
 script = ExtResource( 2 )
 
@@ -24,8 +24,12 @@ position = Vector2( -5, -0.5 )
 shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 4 )]
+health = 160
 
 [node name="Weapon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 17, 12 )
 
 [node name="Team" parent="." instance=ExtResource( 5 )]
+team = 1
+
+[node name="CameraTransform" type="RemoteTransform2D" parent="."]

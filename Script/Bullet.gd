@@ -15,12 +15,15 @@ var team: int = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	killTimer.start()
+	
 
 func _physics_process(delta):
 	if direction != Vector2.ZERO:
 		var velocity = direction * speed
 		
 		global_position += velocity
+	
+	
 	
 func set_direction(direction: Vector2):
 	self.direction = direction
@@ -35,4 +38,7 @@ func _on_Bullet_body_entered(body):
 	if body.has_method("handle_hit"):
 		if body.has_method("get_team") and body.get_team() != team:
 			body.handle_hit()
-		queue_free()
+	queue_free()
+	
+	
+		

@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "AI",
+"language": "GDScript",
+"path": "res://Script/AI.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Script/Actor.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://Script/Bullet.gd"
+}, {
+"base": "Area2D",
+"class": "CaptureBase",
+"language": "GDScript",
+"path": "res://Script/Base.gd"
+}, {
+"base": "Node2D",
+"class": "Pathfinding",
+"language": "GDScript",
+"path": "res://Script/Pathfinding.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -20,13 +40,23 @@ _global_script_classes=[ {
 "path": "res://Script/Player.gd"
 }, {
 "base": "Node2D",
+"class": "Team",
+"language": "GDScript",
+"path": "res://Script/Team.gd"
+}, {
+"base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Script/Weapon.gd"
 } ]
 _global_script_class_icons={
+"AI": "",
+"Actor": "",
 "Bullet": "",
+"CaptureBase": "",
+"Pathfinding": "",
 "Player": "",
+"Team": "",
 "Weapon": ""
 }
 
