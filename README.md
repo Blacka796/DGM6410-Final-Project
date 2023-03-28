@@ -6,3 +6,7 @@ ASSETS I USE:
 
 VIDEO I WATCH AND LEARN
 1.https://www.youtube.com/watch?v=gXkkNSfxLRI&list=PLpwc3ughKbZexDyPexHN2MXLliKAovkpl
+
+Sound Effect From:
+https://pixabay.com/sound-effects/search/weapon/
+https://www.fesliyanstudios.com/royalty-free-sound-effects-download/gun-reloading-302
