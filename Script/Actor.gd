@@ -14,7 +14,7 @@ onready var weapon: Weapon = $Weapon
 onready var team = $Team
 
 
-export var speed = 100 #enemy movement speed
+export var speed = 130 #enemy movement speed
 
 
 func _ready():
@@ -23,7 +23,7 @@ func _ready():
 
 #Function that give the enemy a random rotation when patrol
 func rotate_toward(location: Vector2):
-	rotation = lerp(rotation, global_position.direction_to(location).angle(), 0.1)
+	rotation = lerp_angle(rotation, global_position.direction_to(location).angle(), 0.1)
 
 #Function that give the enemy a random moving distance when patrol
 func velocity_toward(location: Vector2):

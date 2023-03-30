@@ -12,14 +12,14 @@ export var speed = 260# palyer's movement speed
 
 onready var team = $Team
 onready var healthStat = $Health
-onready var weapon: Weapon = $Weapon
+onready var weaponManager = $WeaponManager
 onready var cameraTransform = $CameraTransform
 onready var collisionShape = $CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	weapon.initialize(team.team)
+	weaponManager.initialize(team.team)
 
 
 func _physics_process(delta):
@@ -40,12 +40,7 @@ func _physics_process(delta):
 
 	look_at(get_global_mouse_position())
 
-#function that will control the shooting part
-func _unhandled_input(event):
-	if event.is_action_released("Shoot"):
-		weapon.shoot()
-	elif event.is_action_released("Reload"):
-		weapon.start_reload()
+
 
 func get_team():
 	return team.team
@@ -54,9 +49,6 @@ func get_team():
 func set_camera_transform(camerPath: NodePath):
 	cameraTransform.remote_path = camerPath
 
-
-func reload():
-	weapon.start_reload()
 
 
 #function that healde the damage number of palyer

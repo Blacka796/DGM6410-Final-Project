@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1911-reload-6248.mp3-69b03e594a7e9ebb058f835cc57d23b5.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sound/1911-reload-6248.mp3"
+dest_files=[ "res://.import/1911-reload-6248.mp3-69b03e594a7e9ebb058f835cc57d23b5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

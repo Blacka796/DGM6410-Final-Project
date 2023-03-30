@@ -10,7 +10,7 @@ enum BaseCaptureOrder {
 export (BaseCaptureOrder) var base_Capture_Start_Order
 export (Team.TeamName) var team_name = Team.TeamName.NEUTRAL
 export (PackedScene) var unit = null
-export var max_unit_alive = 14
+export var max_unit_alive = 16
 
 
 onready var team = $Team

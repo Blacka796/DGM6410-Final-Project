@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Roboto_mono_64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Roboto_mono_40.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/GameOverScreen.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.513726, 0.168627, 0.596078, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.223529, 0.223529, 0.223529, 1 )
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="GameOverScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PanelContainer")
+anims/Fade = SubResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 934.0
+margin_bottom = 510.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 884.0
+margin_bottom = 460.0
+custom_constants/separation = 80
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+margin_right = 844.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 166.0
+margin_right = 844.0
+margin_bottom = 378.0
+
+[node name="Button" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+margin_left = 322.0
+margin_right = 521.0
+margin_bottom = 212.0
+custom_constants/separation = 40
+
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_right = 199.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 2 )
+text = " RESTART "
+
+[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_top = 84.0
+margin_right = 199.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 2 )
+text = " MAIN MENU "
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_top = 168.0
+margin_right = 199.0
+margin_bottom = 212.0
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+
+[node name="Overlay" type="PanelContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Quit" to="." method="_on_Quit_pressed"]

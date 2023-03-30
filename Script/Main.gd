@@ -3,6 +3,8 @@ extends Node2D
 #This main script is to store bullet and palyer, and signal call
 
 const Player = preload("res://Scene/Player.tscn")
+const GameOverScreen = preload("res://UI/GameOverScreen.tscn")
+const PauseScreen = preload("res://UI/PauseScreen.tscn")
 
 
 onready var baseManager = $BaseManager
@@ -13,6 +15,7 @@ onready var camera = $Camera2D
 onready var gui = $GUI
 onready var ground = $Ground
 onready var pathfinding = $Pathfinding
+onready var backgroundMusic = $BackgroundMusic
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,9 +31,13 @@ func _ready():
 	var bases = baseManager.getCaptureBases()
 	allyAI.initialize(bases, allyRespawn.get_children(), pathfinding)
 	enemyAI.initialize(bases, enemyRespawn.get_children(), pathfinding)
+	baseManager.connect("player_get_all_bases", self, "handle_player_win")
+	baseManager.connect("player_lose_all_bases", self, "handle_player_lose")
 	
 	
 	spawn_player()
+
+	backgroundMusic.play()
 
 func spawn_player():
 	var player = Player.instance()
@@ -39,3 +46,22 @@ func spawn_player():
 	player.connect("died", self, "spawn_player")
 	gui.set_player(player)
 
+
+func handle_player_win():
+	var gameOver = GameOverScreen.instance()
+	add_child(gameOver)
+	gameOver.set_title(true)
+	get_tree().paused = true
+	
+	
+func handle_player_lose():
+	var gameOver = GameOverScreen.instance()
+	add_child(gameOver)
+	gameOver.set_title(false)
+	get_tree().paused = true
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("Pause"):
+		var pauseMenu = PauseScreen.instance()
+		add_child(pauseMenu)

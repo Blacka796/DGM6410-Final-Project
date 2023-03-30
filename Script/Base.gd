@@ -18,6 +18,14 @@ onready var team = $Team
 onready var captureTimer = $CaptureTimer
 onready var sprite = $Sprite
 onready var collisionShape = $CollisionShape2D
+onready var playerLabel = $Player
+onready var enemyLabel = $Enemy
+
+
+
+func _ready():
+	playerLabel.text = "0"
+	enemyLabel.text = "0"
 
 
 func get_random_position_capture():
@@ -34,8 +42,10 @@ func _on_Base_body_entered(body):
 		var bodyTeam = body.get_team()
 		if bodyTeam == Team.TeamName.ENEMY:
 			enemyCount += 1
+			change_enemy_label()
 		elif bodyTeam == Team.TeamName.PLAYER:
 			playerCount += 1
+			change_player_label()
 
 		check_base_team()
 
@@ -45,10 +55,20 @@ func _on_Base_body_exited(body):
 		var bodyTeam = body.get_team()
 		if bodyTeam == Team.TeamName.ENEMY:
 			enemyCount -= 1
+			change_enemy_label()
 		elif bodyTeam == Team.TeamName.PLAYER:
 			playerCount -= 1
+			change_player_label()
 
 		check_base_team()
+
+func change_player_label():
+	playerLabel.text = str(playerCount)
+
+
+func change_enemy_label():
+	enemyLabel.text = str(enemyCount)
+
 
 #function that will check whcih team capture the base
 func check_base_team():

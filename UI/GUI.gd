@@ -14,12 +14,18 @@ func set_player(player: Player):
 	self.player = player
 	
 	set_health_value(player.healthStat.health)
-	set_current_ammo(player.weapon.currentAmmo)
-	set_max_ammo(player.weapon.maxAmmo)
-	
-	
 	player.connect("player_health_change", self, "set_health_value")
-	player.weapon.connect("weapon_ammo_change", self, "set_current_ammo")
+
+	set_weapon(player.weaponManager.get_current_weapon())
+	player.weaponManager.connect("weaponChanged", self, "set_weapon")
+
+
+func set_weapon(weapon):
+	set_current_ammo(weapon.currentAmmo)
+	set_max_ammo(weapon.maxAmmo)
+	if not weapon.is_connected("weapon_ammo_change", self, "set_current_ammo"):
+		weapon.connect("weapon_ammo_change", self, "set_current_ammo")
+
 
 func set_health_value(newHealth):
 	var originalColor = Color("#67fc14")
