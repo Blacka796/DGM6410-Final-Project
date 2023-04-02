@@ -1,0 +1,293 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://UI/Roboto_mono_64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Roboto_mono_40.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/MainMenuScreen.gd" type="Script" id=3]
+[ext_resource path="res://UI/Menu_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Soldier 1/soldier1_hold.png" type="Texture" id=5]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Soldier 1/soldier1_reload.png" type="Texture" id=6]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Soldier 1/soldier1_silencer.png" type="Texture" id=7]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Robot 1/robot1_machine.png" type="Texture" id=8]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Robot 1/robot1_gun.png" type="Texture" id=9]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Robot 1/robot1_hold.png" type="Texture" id=10]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Soldier 1/soldier1_gun.png" type="Texture" id=11]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Hitman 1/hitman1_silencer.png" type="Texture" id=12]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Robot 1/robot1_reload.png" type="Texture" id=13]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeGreen_twigs.png" type="Texture" id=14]
+[ext_resource path="res://Asset/topdown-shooter/PNG/Robot 1/robot1_silencer.png" type="Texture" id=15]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeBrown_twigs.png" type="Texture" id=16]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeBrown_small.png" type="Texture" id=17]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeGreen_small.png" type="Texture" id=18]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/explosion4.png" type="Texture" id=19]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/shotOrange.png" type="Texture" id=20]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/explosionSmoke4.png" type="Texture" id=21]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/explosionSmoke1.png" type="Texture" id=22]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeBrown_large.png" type="Texture" id=23]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/explosion2.png" type="Texture" id=24]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/treeGreen_large.png" type="Texture" id=25]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/barricadeWood.png" type="Texture" id=26]
+[ext_resource path="res://Asset/kenney_topdowntanksredux/PNG/Default size/barricadeMetal.png" type="Texture" id=27]
+
+[sub_resource type="Animation" id=1]
+resource_name = "UI"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite21:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite23:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.2365, 1.27425 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite24:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite24:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 359.0, 360.0 ]
+}
+
+[node name="MainMenuScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 934.0
+margin_bottom = 520.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 884.0
+margin_bottom = 470.0
+custom_constants/separation = 80
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+margin_right = 844.0
+margin_bottom = 86.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.447059, 0.415686, 0.415686, 1 )
+custom_colors/font_color_shadow = Color( 0.956863, 0.709804, 0.32549, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/line_spacing = 10
+custom_constants/shadow_offset_y = 0
+custom_fonts/font = ExtResource( 1 )
+text = "RUNNING WITH TEAM"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 166.0
+margin_right = 844.0
+margin_bottom = 430.0
+
+[node name="Button" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+margin_left = 370.0
+margin_right = 473.0
+margin_bottom = 264.0
+custom_constants/separation = 40
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_right = 103.0
+margin_bottom = 36.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = " PLAY "
+
+[node name="Control" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_top = 76.0
+margin_right = 103.0
+margin_bottom = 112.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "CONTROL"
+
+[node name="Credit" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_top = 152.0
+margin_right = 103.0
+margin_bottom = 188.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "CREDIT"
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_top = 228.0
+margin_right = 103.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+
+[node name="UI" type="Node2D" parent="PanelContainer/MarginContainer"]
+
+[node name="Sprite" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 267, 246 )
+texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 143, 180 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 96, 270 )
+texture = ExtResource( 5 )
+
+[node name="Sprite4" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 159, 349 )
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 232, 421 )
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 750, 198 )
+rotation = -3.14159
+texture = ExtResource( 9 )
+
+[node name="Sprite7" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 680, 272 )
+rotation = -3.14159
+texture = ExtResource( 8 )
+
+[node name="Sprite8" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 850, 272 )
+rotation = -3.14159
+texture = ExtResource( 13 )
+
+[node name="Sprite9" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 666, 381 )
+rotation = -3.14159
+texture = ExtResource( 15 )
+
+[node name="Sprite10" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 807, 422 )
+rotation = -3.14159
+texture = ExtResource( 10 )
+
+[node name="Sprite11" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 598, 360 )
+rotation = -3.14159
+texture = ExtResource( 16 )
+
+[node name="Sprite12" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 283, 341 )
+rotation = -3.14159
+texture = ExtResource( 14 )
+
+[node name="Sprite13" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 275, 164 )
+rotation = -3.14159
+texture = ExtResource( 18 )
+
+[node name="Sprite14" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 759, 268 )
+rotation = -3.14159
+texture = ExtResource( 17 )
+
+[node name="Sprite15" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 638, 182 )
+rotation = -3.14159
+texture = ExtResource( 25 )
+
+[node name="Sprite16" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 333, 386 )
+rotation = -3.14159
+texture = ExtResource( 17 )
+
+[node name="Sprite17" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 84, 414 )
+rotation = -3.14159
+texture = ExtResource( 23 )
+
+[node name="Sprite18" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 191, 270 )
+rotation = -3.14159
+texture = ExtResource( 26 )
+
+[node name="Sprite19" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 746, 385 )
+rotation = -3.14159
+texture = ExtResource( 27 )
+
+[node name="Sprite20" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 618, 221 )
+rotation = -3.14159
+texture = ExtResource( 19 )
+
+[node name="Sprite21" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 137, 51 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 24 )
+
+[node name="Sprite22" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 504, 43.8396 )
+rotation = -3.14159
+scale = Vector2( 1, 1.27425 )
+texture = ExtResource( 20 )
+
+[node name="Sprite23" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 426.92, 134 )
+rotation = -3.14159
+scale = Vector2( 0.680075, 0.700838 )
+texture = ExtResource( 21 )
+
+[node name="Sprite24" type="Sprite" parent="PanelContainer/MarginContainer/UI"]
+position = Vector2( 621, 83 )
+rotation = 6.26748
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 22 )
+
+[node name="UIPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/UI"]
+anims/UI = SubResource( 1 )
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Control" to="." method="_on_Control_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Credit" to="." method="_on_Credit_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Quit" to="." method="_on_Quit_pressed"]

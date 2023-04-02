@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Asset/kenney_topdowntanksredux/Spritesheet/onlyObjects_default.png" type="Texture" id=1]
 [ext_resource path="res://Scene/Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Script/Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Asset/topdown-shooter/PNG/weapon_silencer.png" type="Texture" id=4]
+[ext_resource path="res://Asset/Sound/5.56-AR15-Single-Close-GunShot-C-www.fesliyanstudios.com.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Asset/Sound/Rifle-Reloading-C-www.fesliyanstudios.com.mp3" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "MuzzleFlash"
@@ -73,9 +75,6 @@ texture = ExtResource( 4 )
 [node name="EndGun" type="Position2D" parent="."]
 position = Vector2( 13, 0 )
 
-[node name="GunDirection" type="Position2D" parent="."]
-position = Vector2( 24, 0 )
-
 [node name="ShotCooldown" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -84,6 +83,7 @@ one_shot = true
 visible = false
 position = Vector2( 26, 0 )
 rotation = -1.5708
+scale = Vector2( 0.5, 1.2 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 324, 334, 20, 24 )
@@ -92,3 +92,11 @@ region_rect = Rect2( 324, 334, 20, 24 )
 root_node = NodePath("../Flash")
 anims/MuzzleFlash = SubResource( 2 )
 anims/Reload = SubResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -6.0
+
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 12.0

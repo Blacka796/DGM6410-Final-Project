@@ -9,4 +9,4 @@ func _ready():
 	pass # Replace with function body.
 
 func setHealth(newHealth):
-	health = clamp(newHealth, 0, 100)
+	health = clamp(newHealth, 0, 160)

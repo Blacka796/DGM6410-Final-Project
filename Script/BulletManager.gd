@@ -4,8 +4,13 @@ extends Node2D
 #Define where to generate the bullet
 
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	pass # Replace with function body.
+	pass
+	
+
+
 
 func bulletSpawned(bullet: Bullet, team: int, position: Vector2, direction: Vector2):
 	add_child(bullet)

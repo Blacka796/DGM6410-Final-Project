@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/ControlScene.gd" type="Script" id=1]
+[ext_resource path="res://UI/Roboto_mono_40.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/Menu_style.tres" type="StyleBox" id=4]
+
+[node name="CreditScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 934.0
+margin_bottom = 510.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 884.0
+margin_bottom = 460.0
+custom_constants/separation = 20
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+margin_right = 844.0
+margin_bottom = 360.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "ASSETS I USE: 1.https://www.kenney.nl/assets/top-down-shooter 2.https://www.kenney.nl/assets/top-down-tanks
+
+VIDEO I WATCH AND LEARN 1.https://www.youtube.com/watch?v=gXkkNSfxLRI&list=PLpwc3ughKbZexDyPexHN2MXLliKAovkpl
+
+Sound Effect From: https://pixabay.com/sound-effects/search/weapon/ https://www.fesliyanstudios.com/royalty-free-sound-effects-download/gun-reloading-302"
+align = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 380.0
+margin_right = 844.0
+margin_bottom = 416.0
+
+[node name="Button" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+margin_left = 344.0
+margin_right = 499.0
+margin_bottom = 36.0
+custom_constants/separation = 20
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Button"]
+margin_right = 155.0
+margin_bottom = 36.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = " MAIN MENU "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Button/Play" to="." method="_on_Play_pressed"]

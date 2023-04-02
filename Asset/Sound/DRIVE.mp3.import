@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DRIVE.mp3-9a49f72b42172a4813b26ea519779d19.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sound/DRIVE.mp3"
+dest_files=[ "res://.import/DRIVE.mp3-9a49f72b42172a4813b26ea519779d19.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
